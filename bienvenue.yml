@@ -1,0 +1,19 @@
+name: Message de Bienvenue
+
+# Quand ? À chaque push
+on: [push]
+
+# Quoi faire ?
+jobs:
+  dire-bonjour:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Afficher un message
+        run: echo "🎉 Bravo ! Ton code a été reçu sur GitHub !"
+      
+      - name: Afficher la date
+        run: date
+      
+      - name: Dire au revoir
+        run: echo "✅ Workflow terminé avec succès !"

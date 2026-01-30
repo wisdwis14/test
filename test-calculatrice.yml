@@ -1,0 +1,32 @@
+name: Tests Automatiques Python
+
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Récupérer le code
+        uses: actions/checkout@v3
+      
+      - name: 🐍 Installer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: 📦 Vérifier la version de Python
+        run: python --version
+      
+      - name: 🧪 Lancer les tests
+        run: python test_calculatrice.py
+      
+      - name: ✨ Exécuter le programme principal
+        run: python calculatrice.py
+      
+      - name: 🎉 Tests terminés avec succès
+        run: echo "Tous les tests sont passés! Le code fonctionne correctement."
